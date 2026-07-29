@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+#
+# /etc/rc.local
+
+set +o noclobber
+
+echo 1 > /proc/sys/kernel/sysrq
+echo 0 >  /sys/module/nvme_core/parameters/default_ps_max_latency_us
+
+echo one > /proc/nas/beeper
+
+# Log the configuration of the running system at boot
+/usr/local/sbin/log_sysinfo.sh &
+

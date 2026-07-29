@@ -1,0 +1,36 @@
+#!/bin/bash
+
+times=1 #响的次数
+long=400 #一次响的时长:ms
+frequency=800 #声音频率
+interval=500 #对于多次有效，多次叫声间隔:ms
+
+while getopts "t:l:f:i:" opt; do
+    case $opt in
+    t)
+        times="$OPTARG"
+        ;;
+    l)
+        long="$OPTARG"
+        ;;
+    f)
+        frequency="$OPTARG"
+        ;;
+    i)
+        interval="$OPTARG"
+        ;;
+    ?)
+        echo "$(basename $0) -t 1 -l 1000 -f 500 -i 500" >&2
+        exit 1
+        ;;
+    esac
+done
+
+#DXP480T Plus
+productName=$(dmidecode -s system-product-name)
+if [ "$productName" = "DXP480T Plus" ] || [ "$productName" = "DH2600" ] || [[ "$productName" =~ "DX601" ]]; then
+    echo "rep ${times} ${long} ${interval}" > /proc/nas/beeper
+else
+    beep -f ${frequency} -l ${long} -d ${interval} -r ${times}
+fi
+exit 0

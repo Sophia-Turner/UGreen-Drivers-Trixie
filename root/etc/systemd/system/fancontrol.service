@@ -1,0 +1,13 @@
+[Unit]
+Description=Custom Fan Controller
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/sbin/fancontrol.sh
+Restart=always
+RestartSec=2
+User=root
+
+[Install]
+WantedBy=multi-user.target
+

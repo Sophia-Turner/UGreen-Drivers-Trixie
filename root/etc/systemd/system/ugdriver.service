@@ -1,0 +1,18 @@
+[Unit]
+Description=Load ugreen driver
+Before=ugbus.service
+After=uginit.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ug-load-drive.sh
+ExecStop=/usr/bin/true
+ExecStopPost=/usr/bin/true
+Restart=on-failure
+RestartSec=2
+RemainAfterExit=yes
+TimeoutStartSec=900
+Nice=-19
+
+[Install]
+WantedBy=multi-user.target
