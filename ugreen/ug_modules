@@ -1,0 +1,11 @@
+leds-mcu.ko
+leds-mcu-28a48.ko
+ledtrig-breath-ht32f52231.ko
+ledtrig-netdev2.ko
+ledtrig-normal-ht32f52231.ko
+ledtrig-timer2-ht32f52231.ko
+ug_gpio_btn.ko
+ug_idx6011pro-sio.ko
+ug_idx6011-sio.ko
+ug_it86x-sio.ko
+ug_sataio_beep.ko

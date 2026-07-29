@@ -1,0 +1,22 @@
+obj-m := ug_it86x-sio.o
+obj-m += ug_gpio_btn.o
+obj-m += ug_sataio_beep.o
+ug_sataio_beep-objs := ug_sataio_beeper.o it55_helper.o
+obj-m += leds-mcu-28a48.o
+obj-m += ledtrig-normal-ht32f52231.o
+obj-m += ledtrig-timer2-ht32f52231.o
+obj-m += ledtrig-breath-ht32f52231.o
+##### CONFIG_UG_OSS_REMOVE #####
+#IDX6011/IDX6012
+obj-m += leds-mcu.o
+obj-m += ug_idx6011pro-sio.o
+obj-m += ug_idx6011-sio.o
+ug_idx6011-sio-objs := ug_it55_functions.o it55_helper.o
+ug_idx6011pro-sio-objs := ug_it55pro_functions.o it55_helper.o
+
+obj-y += dx4700/
+obj-y += dxp480t/
+obj-y += dxp68a88/
+obj-y += dh2600/
+
+##### CONFIG_UG_OSS_REMOVE #####
